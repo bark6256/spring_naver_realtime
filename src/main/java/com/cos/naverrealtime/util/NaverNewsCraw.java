@@ -10,14 +10,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.cos.naverrealtime.domain.News;
-import com.cos.naverrealtime.domain.NewsRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
 public class NaverNewsCraw {
-	int aidNum = 1;
+	int aidNum = 277493;
 	
 	public List<News> newsCraw5() {
 		System.out.println("크롤링 시작");
@@ -26,7 +25,7 @@ public class NaverNewsCraw {
 		
 		for (int i = 1; i < 6; i++) {
 			String aid = String.format("%010d", aidNum);
-			String url = "https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=022&aid=" + aid;
+			String url = "https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=103&oid=437&aid=" + aid;
 			String html = rt.getForObject(url, String.class);
 
 			try {
@@ -45,7 +44,6 @@ public class NaverNewsCraw {
 						.title(title)
 						.createdAt(createdAt)
 						.build();
-				System.out.println(news);
 				
 				newsList.add(news);
 				

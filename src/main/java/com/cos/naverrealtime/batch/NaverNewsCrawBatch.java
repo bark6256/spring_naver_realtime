@@ -19,9 +19,10 @@ public class NaverNewsCrawBatch {
 	private final NaverNewsCraw naverNewsCraw;
 	private final NewsRepository newsRepository;
 	
-	@Scheduled(fixedDelay = 1000 * 30)
+	@Scheduled(fixedDelay = 1000 * 60 * 5)
 	public void NewsCrawAndSave() {
 		List<News> newsList = naverNewsCraw.newsCraw5();
+		
 		newsRepository.saveAll(newsList);
 	}
 }

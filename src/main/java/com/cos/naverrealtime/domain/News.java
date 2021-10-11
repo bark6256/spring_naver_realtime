@@ -1,5 +1,7 @@
 package com.cos.naverrealtime.domain;
 
+import java.sql.Timestamp;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -1,6 +1,7 @@
 package com.cos.naverrealtime.web;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class NewsController {
 
 	private final NewsRepository newsRepository;
 
+	@CrossOrigin
 	@GetMapping(value = "/news", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<News> findAll() {
 		return newsRepository.mFindAll().subscribeOn(Schedulers.boundedElastic());
