@@ -1,14 +1,16 @@
 package com.cos.naverrealtime.domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Builder
+@AllArgsConstructor
 @Data
 @Document(collection = "naver_realtime")
 public class News {
@@ -17,5 +19,5 @@ public class News {
 	
 	private String company;
 	private String title;
-	private String createdAt;
+	private Date createdAt;
 }
